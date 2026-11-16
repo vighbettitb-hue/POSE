@@ -1,0 +1,12 @@
+{
+  "name": "PózTükör – Kamerás pózvezető",
+  "short_name": "PózTükör",
+  "description": "Kamerás pózvezető áttetsző sziluettekkel.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10131b",
+  "theme_color": "#10131b",
+  "orientation": "portrait",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

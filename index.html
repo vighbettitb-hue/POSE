@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10131b">
+  <meta name="description" content="Kamerás pózvezető áttetsző emberi sziluettekkel.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>PózTükör</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">P</span><div><strong>PózTükör</strong><small>Találd meg a pózt</small></div></div>
+      <button id="installBtn" class="install hidden">Telepítés</button>
+    </header>
+
+    <section class="stage-wrap">
+      <div id="stage" class="stage">
+        <video id="camera" autoplay playsinline muted></video>
+        <div id="cameraPlaceholder" class="camera-placeholder">
+          <div class="camera-icon">◎</div>
+          <strong>A kamera még nincs elindítva</strong>
+          <span>Engedélyezd a kamerát, majd válassz egy pózt.</span>
+        </div>
+        <div id="silhouetteLayer" class="silhouette-layer" aria-label="Póz sziluettje"></div>
+        <div class="stage-hint">A sziluettet igazítsd a testedhez</div>
+      </div>
+      <div class="camera-actions">
+        <button id="cameraBtn" class="primary">Kamera indítása</button>
+        <button id="switchBtn" class="secondary" disabled>Kamera váltása</button>
+        <button id="captureBtn" class="secondary" disabled>Fotó</button>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="section-heading"><div><h2>Válassz pózt</h2><p id="poseDescription">Kezdésnek válassz egy kategóriát.</p></div><span class="count" id="poseCount"></span></div>
+      <div id="categories" class="categories"></div>
+      <div id="poses" class="poses"></div>
+      <div class="adjustments">
+        <label>Sziluett átlátszósága <output id="opacityValue">55%</output>
+          <input id="opacity" type="range" min="15" max="90" value="55">
+        </label>
+        <label>Méret <output id="scaleValue">100%</output>
+          <input id="scale" type="range" min="65" max="145" value="100">
+        </label>
+        <div class="adjust-buttons">
+          <button id="flipBtn" class="secondary">Tükrözés</button>
+          <button id="resetBtn" class="secondary">Visszaállítás</button>
+        </div>
+      </div>
+      <p class="privacy-note">A kameraképet az alkalmazás nem tölti fel sehova. A kamera csak az eszközödön működik.</p>
+    </section>
+  </main>
+  <canvas id="captureCanvas" class="hidden"></canvas>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
